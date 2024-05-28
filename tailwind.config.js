@@ -15,8 +15,16 @@ module.exports = {
             padding: {
                 DEFAULT: '1rem',
                 sm: '2rem',
-                lg: '0rem'
+                lg: '3rem'
             },
+            maxWidth: {
+                DEFAULT: '100%',
+                sm: '640px',
+                md: '768px',
+                lg: '1024px',
+                xl: '1280px',
+                '2xl': '1440px'
+            }
         },
         extend: {
             colors: {
@@ -36,8 +44,7 @@ module.exports = {
             'sm': '600px',
             'md': '782px',
             'lg': '960px',
-            'xl': '1280px',
-            '2xl': '1440px'
+            'xl': '1280px'
         }
     },
     plugins: [
