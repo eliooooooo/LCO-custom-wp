@@ -2,6 +2,7 @@ const tailpress = require("@jeffreyvr/tailwindcss-tailpress");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    mode: 'jit',
     content: [
         './*.php',
         './**/*.php',
@@ -19,13 +20,13 @@ module.exports = {
         },
         extend: {
             colors: {
-                blue: {
+                lco_blue: {
                     500: '#679DAD'
                 },
-                yellow: {
+                lco_yellow: {
                     500: '#C8AD2C'
                 },
-                gray: {
+                lco_gray: {
                     500: '#5F5F62'
                 }
             }

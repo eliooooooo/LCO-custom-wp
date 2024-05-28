@@ -15,7 +15,7 @@
 
 	<?php do_action( 'tailpress_header' ); ?>
 
-	<header class="main-menu bg-white block">
+	<header class="main-menu bg-white block drop-shadow-lg">
 
 		<div class="mx-auto container h-28">
 			<div class="lg:flex lg:justify-between lg:items-center h-full py-4 px-2">

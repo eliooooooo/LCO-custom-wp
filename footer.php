@@ -37,7 +37,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="text-center mt-4">
+	<div class="text-center mt-4 text-gray-400">
 		&copy; <?php echo date_i18n( 'Y' );?> - <?php echo get_bloginfo( 'name' );?>
 	</div>
 </footer>
