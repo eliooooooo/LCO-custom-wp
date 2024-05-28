@@ -12,11 +12,11 @@
 	"text_domain": "tailpress",
 	"license": "MIT",
 	"scripts": {
-		"dev": "mix",
-		"watch": "mix watch",
-		"watch-poll": "mix watch -- --watch-options-poll=1000",
-		"hot": "mix watch --hot",
-		"production": "mix --production"
+		"clean": "rm -rf ./dist",
+		"prod": "node ./scripts/esbuild.prod.js",
+		"build": "node ./scripts/esbuild.build.js",
+		"watch": "node ./scripts/esbuild.watch.js",
+		"rebuild": "rm -rf ./node_modules && rm -rf package-lock.json && npm install && npm run build "
 	},
 	"devDependencies": {
 		"@jeffreyvr/tailwindcss-tailpress": "^2.0.0",
@@ -30,5 +30,12 @@
 		"postcss-nested-ancestors": "^2.0.0",
 		"resolve-url-loader": "^3.1.2",
 		"tailwindcss": "^3.4.0"
+	},
+	"dependencies": {
+		"alpinejs": "^3.14.0",
+		"chokidar": "^3.6.0",
+		"esbuild": "^0.21.4",
+		"esbuild-style-plugin": "^1.6.3",
+		"fs": "^0.0.1-security"
 	}
 }

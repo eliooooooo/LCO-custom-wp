@@ -1,4 +1,3 @@
-const theme = require('./theme.json');
 const tailpress = require("@jeffreyvr/tailwindcss-tailpress");
 
 /** @type {import('tailwindcss').Config} */
@@ -19,15 +18,24 @@ module.exports = {
             },
         },
         extend: {
-            colors: tailpress.colorMapper(tailpress.theme('settings.color.palette', theme)),
-            fontSize: tailpress.fontSizeMapper(tailpress.theme('settings.typography.fontSizes', theme))
+            colors: {
+                blue: {
+                    500: '#679DAD'
+                },
+                yellow: {
+                    500: '#C8AD2C'
+                },
+                gray: {
+                    500: '#5F5F62'
+                }
+            }
         },
         screens: {
             'xs': '480px',
             'sm': '600px',
             'md': '782px',
-            'lg': tailpress.theme('settings.layout.contentSize', theme),
-            'xl': tailpress.theme('settings.layout.wideSize', theme),
+            'lg': '960px',
+            'xl': '1280px',
             '2xl': '1440px'
         }
     },
