@@ -8,17 +8,27 @@
 	<?php wp_head(); ?>
 </head>
 <body class="antialiased">
-	<div class="md:flex min-h-screen">
-		<div class="w-full md:w-1/2 flex items-center justify-center">
-			<div class="max-w-sm m-8">
-				<div class="text-5xl md:text-15xl text-gray-800 border-primary border-b">404</div>
-				<div class="w-16 h-1 bg-purple-light my-3 md:my-6"></div>
-				<p class="text-gray-800 text-2xl md:text-3xl font-light mb-8"><?php _e( 'Sorry, the page you are looking for could not be found.', 'tailpress' ); ?></p>
-				<a href="<?php echo get_bloginfo( 'url' ); ?>" class="bg-primary px-4 py-2 rounded text-white">
-					<?php _e( 'Go Home', 'tailpress' ); ?>
-				</a>
+	<?php get_header(); ?>
+	
+	<div class="mt-16 mb-16">
+		<div class="w-full flex flex-col gap-6 items-center justify-center">
+			<div class="m-8 flex flex-row gap-9">
+				<div class="relative block w-6 h-44">
+					<div class="absolute w-4 h-40 bg-lco_yellow-500 rounded-full"></div>
+					<div class="absolute w-4 h-24 bg-lco_gray-500 rounded-full"></div>
+					<div class="absolute w-4 h-10 bg-lco_blue-500 rounded-full"></div>
+				</div>
+				<div>
+					<div class="text-5xl md:text-6xl">ERREUR <span class="font-bold">404</span></div>
+					<div class="w-16 h-1 bg-purple-light my-3 md:my-6"></div>
+					<p class="text-xl">Une erreur est survenue lors du chargement de la page.<br>La requête n’a pas pu être exécutée</p>
+				</div>
 			</div>
+			<a href="<?php echo get_bloginfo( 'url' ); ?>" class="btn bg-lco_blue-500 px-4 py-2 rounded text-white rounded-full">
+				Retour à l'accueil
+			</a>
 		</div>
 	</div>
+	<?php get_footer(); ?>
 </body>
 </html>
