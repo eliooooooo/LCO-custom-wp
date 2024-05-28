@@ -5,28 +5,30 @@
 
 </div>
 
-<footer id="colophon" class="site-footer py-8 bg-black text-white" role="contentinfo">	
-	<div class="container flex flex-row mx-auto text-center justify-around">
-		<ul class="flex flex-col items-start text-left">
-			<li class="font-bold"><?php echo get_bloginfo( 'name' ); ?></li>
-			<li>Tel. : 00 00 00 00 00</li>
-			<li>Mail : secretariat.lco@gmail.com</li>
-		</ul>
-		<div>
-			<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'footer',
-						'container'      => false,
-						'menu_class'     => 'flex flex-col items-start gap-4',
-						'li_class'       => 'underline'
-					)
-				);
-			?>
+<footer class="site-footer py-8 bg-black text-white">	
+	<div class="container flex flex-col md:flex-row gap-4 flex-wrap mx-auto text-center justify-around">
+		<div class="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-4 sm:gap-8 md:gap-12 py-4">
+			<ul class="flex flex-col items-center sm:items-start text-center sm:text-left">
+				<li class="font-bold"><?php echo get_bloginfo( 'name' ); ?></li>
+				<li>Tel. : 00 00 00 00 00</li>
+				<li>Mail : secretariat.lco@gmail.com</li>
+			</ul>
+			<div>
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'footer',
+							'container'      => false,
+							'menu_class'     => 'flex flex-col items-start gap-4',
+							'li_class'       => ''
+						)
+					);
+				?>
+			</div>
 		</div>
-		<div class="flex flex-col items-center gap-6">
+		<div class="flex flex-col items-center gap-6 border-l-0 border-t md:border-t-0 md:border-l md:pl-6 md:pt-0 py-4">
 			<span>Retrouvez-nous sur :</span>
-			<ul class="flex flex-row items-center gap-4">
+			<ul class="flex flex-row items-center gap-2">
 				<li>
 					<a href="https://www.facebook.com/LCOberschaeffolsheim/">
 						<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
@@ -37,9 +39,9 @@
 			</ul>
 		</div>
 	</div>
-	<div class="text-center mt-4 text-gray-400">
-		&copy; <?php echo date_i18n( 'Y' );?> - <?php echo get_bloginfo( 'name' );?>
-	</div>
+	<!-- <div class="text-center mt-4 text-gray-400">
+		&copy; <?php // echo date_i18n( 'Y' );?> - <?php // echo get_bloginfo( 'name' );?>
+	</div> -->
 </footer>
 
 </div>
