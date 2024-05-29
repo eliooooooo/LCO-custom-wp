@@ -2,6 +2,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "./content.scss";
+
 body {
     /* background-color: blue; */
 }
