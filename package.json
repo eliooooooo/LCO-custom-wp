@@ -36,6 +36,7 @@
 		"chokidar": "^3.6.0",
 		"esbuild": "^0.21.4",
 		"esbuild-style-plugin": "^1.6.3",
-		"fs": "^0.0.1-security"
+		"fs": "^0.0.1-security",
+		"swiper": "^11.1.3"
 	}
 }
