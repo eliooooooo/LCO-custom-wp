@@ -4,6 +4,7 @@
 
 @import "./content.scss";
 @import "./swiper.scss";
+@import "./buttons.scss";
 
 body {
     /* background-color: blue; */
