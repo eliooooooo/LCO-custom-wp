@@ -52,7 +52,7 @@ get_header(); ?>
                     <?php the_content(); ?>
 					<?php if($nom_pres && $texte_pres){ ?>
 						<div class="intervenant bg-gray-200 rounded-md py-2 sm:py-6 px-4 sm:px-8 mt-8">
-							<h3 class="text-xl font-bold mb-4">Cours encadrés par <?php echo $nom_pres; ?></h3>
+							<h3 class="font-black">Cours encadrés par <?php echo $nom_pres; ?></h3>
 							<?php echo $texte_pres; ?>
 						</div>
 					<?php } ?>

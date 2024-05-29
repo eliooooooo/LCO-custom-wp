@@ -29,7 +29,8 @@ module.exports = {
         extend: {
             colors: {
                 lco_blue: {
-                    500: '#679DAD'
+                    500: '#679DAD',
+                    700: '#4D7F8D'
                 },
                 lco_yellow: {
                     500: '#C8AD2C'
