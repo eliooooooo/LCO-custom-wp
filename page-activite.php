@@ -26,6 +26,14 @@ $pres_intervenant = get_field('presentation_intervenant', $activite_id);
 $nom_pres = $pres_intervenant['prenom_nom'];
 $texte_pres = $pres_intervenant['texte'];
 
+$gallerie = get_field('gallerie_photo', $activite_id);
+$nb_photos = 0;
+foreach($gallerie as $photo){
+	if($photo['url']){
+		$nb_photos++;
+	}
+}
+
 get_header(); ?>
 <div class="bg-gray-200 pt-8 flex items-center justify-center">
 	<?php echo generate_title($title, 'h1') ?>
@@ -116,6 +124,46 @@ get_header(); ?>
 					</div>
                 </div>
             </div>
+
+			<?php if($nb_photos > 0) { ?>
+				<div class="gallerie relative h-auto overflow-hidden mt-8">
+					<?php if(($nb_photos <= 2) && ($nb_photos > 0) ){ ?>	
+						<div class="flex flex-row justify-center gap-4">
+							<?php foreach($gallerie as $photo){ ?>
+								<?php if($photo['url']){ ?>
+									<img src="<?php echo $photo['url']; ?>" alt="<?php echo $photo['alt']; ?>" class="max-w-full rounded-md mx-auto">
+								<?php } ?>
+							<?php } ?>
+						</div>
+					<?php } else { ?>
+						<div class="swiper-css swiper-activites">
+							<div class="swiper-wrapper">
+								<!-- Slides -->
+								<?php foreach($gallerie as $photo){ ?>
+									<?php if($photo['url']){ ?>
+										<div class="swiper-slide h-auto ">
+											<img src="<?php echo $photo['url']; ?>" alt="<?php echo $photo['alt']; ?>" class="w-full rounded-md">
+										</div>
+									<?php } ?>
+								<?php } ?>
+							</div>
+		
+							<div class="swiper-pagination"></div>
+		
+							<div class="swiper-button-prev text-white">
+								<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+									<path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+								</svg>
+							</div>
+							<div class="swiper-button-next text-white">
+								<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+									<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+								</svg>
+							</div>
+						</div>
+					<?php } ?>
+				</div>
+			<?php } ?>
 
 		<?php endwhile; ?>
 

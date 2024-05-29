@@ -1,0 +1,13 @@
+.swiper-css {
+    .swiper-button-prev,
+    .swiper-button-next {
+        @apply w-auto text-white;
+        &::after {
+            @apply content-none;
+        }
+    }
+
+    .swiper-pagination-bullet-active {
+        @apply bg-white;
+    }
+}

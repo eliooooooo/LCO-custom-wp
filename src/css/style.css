@@ -3,6 +3,7 @@
 @import "tailwindcss/utilities";
 
 @import "./content.scss";
+@import "./swiper.scss";
 
 body {
     /* background-color: blue; */
