@@ -32,7 +32,6 @@ function tailpress_setup() {
 	add_theme_support( 'editor-styles' );
 	add_editor_style( 'css/editor-style.css' );
 }
-
 add_action( 'after_setup_theme', 'tailpress_setup' );
 
 /**
@@ -44,7 +43,6 @@ function tailpress_enqueue_scripts() {
 	wp_enqueue_style( 'tailpress', tailpress_asset( 'dist/main.css' ), array(), $theme->get( 'Version' ) );
 	wp_enqueue_script( 'tailpress', tailpress_asset( 'dist/main.js' ), array(), $theme->get( 'Version' ) );
 }
-
 add_action( 'wp_enqueue_scripts', 'tailpress_enqueue_scripts' );
 
 /**
@@ -71,18 +69,17 @@ function tailpress_asset( $path ) {
  *
  * @return array
  */
-// function tailpress_nav_menu_add_li_class( $classes, $item, $args, $depth ) {
-// 	if ( isset( $args->li_class ) ) {
-// 		$classes[] = $args->li_class;
-// 	}
+function tailpress_nav_menu_add_li_class( $classes, $item, $args, $depth ) {
+	if ( isset( $args->li_class ) ) {
+		$classes[] = $args->li_class;
+	}
 
-// 	if ( isset( $args->{"li_class_$depth"} ) ) {
-// 		$classes[] = $args->{"li_class_$depth"};
-// 	}
+	if ( isset( $args->{"li_class_$depth"} ) ) {
+		$classes[] = $args->{"li_class_$depth"};
+	}
 
-// 	return $classes;
-// }
-
+	return $classes;
+}
 add_filter( 'nav_menu_css_class', 'tailpress_nav_menu_add_li_class', 10, 4 );
 
 /**
@@ -105,5 +102,85 @@ add_filter( 'nav_menu_css_class', 'tailpress_nav_menu_add_li_class', 10, 4 );
 
 // 	return $classes;
 // }
-
 // add_filter( 'nav_menu_submenu_css_class', 'tailpress_nav_menu_add_submenu_class', 10, 3 );
+
+// Register Activites Custom Post Type
+function activites() {
+
+	$labels = array(
+		'name'                  => _x( 'Activités', 'Post Type General Name', 'custom' ),
+		'singular_name'         => _x( 'Activité', 'Post Type Singular Name', 'custom' ),
+		'menu_name'             => __( 'Activités', 'custom' ),
+		'name_admin_bar'        => __( 'Activités', 'custom' ),
+		'archives'              => __( 'Item Archives', 'custom' ),
+		'attributes'            => __( 'Item Attributes', 'custom' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'custom' ),
+		'all_items'             => __( 'All Items', 'custom' ),
+		'add_new_item'          => __( 'Add New Item', 'custom' ),
+		'add_new'               => __( 'Add New', 'custom' ),
+		'new_item'              => __( 'New Item', 'custom' ),
+		'edit_item'             => __( 'Edit Item', 'custom' ),
+		'update_item'           => __( 'Update Item', 'custom' ),
+		'view_item'             => __( 'View Item', 'custom' ),
+		'view_items'            => __( 'View Items', 'custom' ),
+		'search_items'          => __( 'Search Item', 'custom' ),
+		'not_found'             => __( 'Not found', 'custom' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'custom' ),
+		'featured_image'        => __( 'Featured Image', 'custom' ),
+		'set_featured_image'    => __( 'Set featured image', 'custom' ),
+		'remove_featured_image' => __( 'Remove featured image', 'custom' ),
+		'use_featured_image'    => __( 'Use as featured image', 'custom' ),
+		'insert_into_item'      => __( 'Insert into item', 'custom' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'custom' ),
+		'items_list'            => __( 'Items list', 'custom' ),
+		'items_list_navigation' => __( 'Items list navigation', 'custom' ),
+		'filter_items_list'     => __( 'Filter items list', 'custom' ),
+	);
+	$args = array(
+		'label'                 => __( 'Activité', 'custom' ),
+		'description'           => __( 'Les différentes activités proposées par LCO', 'custom' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor' ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'activites', $args );
+
+}
+add_action( 'init', 'activites', 0 );
+
+// Register Activites custom template
+add_filter('template_include', 'my_custom_template');
+function my_custom_template($template) {
+	global $post;
+
+	if ($post->post_type == 'activites') {
+		return get_template_directory() . '/page-activite.php';
+	}
+
+	return $template;
+}
+
+// Generate title style
+function generate_title($title_content, $title_tag) {
+    $html = '<div class="flex flex-col gap-4 w-fit mb-10">';
+    $html .= '<' . $title_tag . ' class="text-3xl font-bold text-lco_gray-500">' . $title_content . '</' . $title_tag . '>';
+    $html .= '<div class="flex flex-row items-center justify-center gap-2">';
+    $html .= '<div class="h-3 w-14 bg-lco_blue-500 rounded-full"></div>';
+    $html .= '<div class="h-3 w-3 bg-lco_gray-500 rounded-full"></div>';
+    $html .= '<div class="h-3 w-20 bg-lco_yellow-500 rounded-full"></div>';
+    $html .= '</div></div>';
+
+    return $html;
+}

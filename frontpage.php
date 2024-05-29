@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Frontpage
+Template Name: Page d'accueil
 */
 
 $frontpage_id = get_option( 'page_on_front' );
@@ -31,14 +31,7 @@ $image_5050 = get_field('bloc_5050')['image'];
 <div class="container mx-auto my-8">
 
     <?php if ($titre_5050 || $texte_5050 || $image_5050){ ?>
-        <div class="flex flex-col gap-4 w-fit mb-10">
-            <h2 class="text-3xl font-bold text-lco_gray-500"><?php echo $titre_5050; ?></h2>
-            <div class="flex flex-row items-center justify-center gap-2">
-                <div class="h-3 w-14 bg-lco_blue-500 rounded-full"></div>
-                <div class="h-3 w-3 bg-lco_gray-500 rounded-full"></div>
-                <div class="h-3 w-20 bg-lco_yellow-500 rounded-full"></div>
-            </div>
-        </div>
+        <?php echo generate_title($titre_5050, 'h2') ?>
         <div class="flex flex-col lg:flex-row gap-4 lg:gap-8">
             <div class="flex flex-col gap-4 lg:w-1/2">
                 <?php echo $texte_5050; ?>
@@ -55,7 +48,6 @@ $image_5050 = get_field('bloc_5050')['image'];
 			the_post();
 
 			?>
-    
 
 			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 
