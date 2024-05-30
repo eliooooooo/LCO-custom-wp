@@ -12,6 +12,10 @@ $fiche_inscription = $documents['fiche_inscription'];
 $reglement = $documents['reglement_interieur'];
 $questionnaire = $documents['questionnaire_sante'];
 
+$encart = get_field('encart', $page_id);
+
+$warning = get_field('warning', $page_id);
+
 get_header(); ?>
 <div class="bg-gray-200 pt-8 flex items-center justify-center">
 	<?php echo generate_title($title, 'h1') ?>
@@ -28,6 +32,19 @@ get_header(); ?>
 			<div class="flex flex-col md:flex-row gap-8 lg:gap-10 xl:gap-14">
                 <div class="content w-full md:w-7/12 lg:w-8/12">
                     <?php the_content(); ?>
+                    <?php if($encart){ ?>
+                        <div class="bg-gray-200 rounded-md py-2 sm:py-6 px-4 sm:px-8 mt-8">
+                            <p><?php echo $encart; ?></p>
+                        </div>
+                    <?php } ?>
+                    <?php if($warning){ ?>
+                        <div class="rounded-md mt-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-exclamation-triangle-fill float-left mr-4 mb-2 mt-2 text-lco_yellow-500" viewBox="0 0 16 16">
+                                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                            </svg>
+                            <p><?php echo $warning; ?></p>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="infos-pratiques w-full md:w-5/12 lg:w-4/12">
 					<div class="w-full border border-solid border-gray-400 rounded-md py-8 px-4">
@@ -41,6 +58,9 @@ get_header(); ?>
                                 </div>
                                 <a href="<?php echo $fiche_inscription["link"]; ?>" target="_blank" class="btn blue">Télécharger</a>
                             </div>
+                            <?php if($reglement || $questionnaire){ ?>
+                                <hr class="border-gray-400 mb-4">
+                            <?php } ?>
 						<?php } ?>
                         <?php if($reglement){ ?>
                             <div class="mb-4">
@@ -52,9 +72,12 @@ get_header(); ?>
                                 </div>
                                 <a href="<?php echo $reglement["link"]; ?>" target="_blank" class="btn blue">Télécharger</a>
                             </div>
+                            <?php if($questionnaire){ ?>
+                                <hr class="border-gray-400 mb-4">
+                            <?php } ?>
                         <?php } ?>
                         <?php if($questionnaire){ ?>
-                            <div class="mb-4">
+                            <div>
                                 <div class="flex flex-row gap-4 items-center justify-between mb-4">
                                     <h3 class="text-xl font-bold mb-2">Questionnaire de santé</h3>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
