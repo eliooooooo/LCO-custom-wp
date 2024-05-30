@@ -172,6 +172,7 @@ function my_custom_template($template) {
 	return $template;
 }
 
+
 // Generate title style
 function generate_title($title_content, $title_tag) {
     $html = '<div class="flex flex-col gap-4 w-fit mb-10">';
@@ -184,3 +185,19 @@ function generate_title($title_content, $title_tag) {
 
     return $html;
 }
+
+
+// Add theme styles to TinyMCE
+function add_editor_styles() {
+	add_editor_style( 'editor-style.css' );
+}
+add_action( 'admin_init', 'add_editor_styles' );
+
+function mce_css( $mce_css ) {
+	if ( !empty( $mce_css ) ) {
+		$mce_css .= ',';
+	}
+	$mce_css .= trailingslashit( get_stylesheet_directory_uri() ) . 'main.css';
+	return $mce_css;
+}
+add_filter( 'mce_css', 'mce_css' );
