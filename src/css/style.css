@@ -6,6 +6,9 @@
 @import "./swiper.scss";
 @import "./buttons.scss";
 
-body {
-    /* background-color: blue; */
+html {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
 }
