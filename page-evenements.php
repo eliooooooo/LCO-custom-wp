@@ -9,7 +9,7 @@ $title = get_the_title();
 //Infos pratiques
 $infos_pratiques = get_field('infos_pratiques', $activite_id);
 $lieu = $infos_pratiques['lieu'];
-$horaires = $infos_pratiques['horaires'];
+$dates = $infos_pratiques['dates'];
 $tarif = $infos_pratiques['tarif'];
 
 $intervenant = $infos_pratiques['intervenant'];
@@ -34,7 +34,6 @@ foreach($gallerie as $photo){
 	}
 }
 
-// Set the variable to be used in another file
 set_query_var( 'gallerie', $gallerie );
 
 get_header(); ?>
@@ -63,10 +62,6 @@ get_header(); ?>
                 <div class="infos-pratiques w-full md:w-5/12 lg:w-4/12">
 					<div class="w-full border border-solid border-gray-400 rounded-md py-8 px-4">
 						<?php if($lieu){ ?>
-							<h3 class="text-xl font-bold mb-2">Infos pratiques</h3>
-							<hr class="mb-4 border-gray-400">
-						<?php } ?>
-						<?php if($lieu){ ?>
 							<div class="flex flex-row gap-4 items-center mb-4">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
 									<path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
@@ -74,16 +69,13 @@ get_header(); ?>
 								<p><?php echo $lieu; ?></p>
 							</div>
 						<?php } ?>
-						<?php if($horaires || $nom_intervenant || $tel_intervenant || $email_intervenant){ ?>
-							<h3 class="text-xl font-bold mb-2">Cours</h3>
-							<hr class="mb-4 border-gray-400">
-						<?php } ?>
-						<?php if($horaires){ ?>
+						<?php if($dates){ ?>
 							<div class="flex flex-row gap-4 items-center mb-4">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
-									<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
+									<path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+									<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
 								</svg>
-								<p><?php echo $horaires; ?></p>
+								<p><?php echo $dates; ?></p>
 							</div>
 						<?php } ?>
 						<?php if($nom_intervenant || $tel_intervenant || $email_intervenant){ ?>
