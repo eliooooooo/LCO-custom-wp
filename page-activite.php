@@ -28,12 +28,13 @@ $texte_pres = $pres_intervenant['texte'];
 
 $gallerie = get_field('gallerie_photo', $activite_id);
 $nb_photos = 0;
-foreach($gallerie as $photo){
-	if($photo['url']){
-		$nb_photos++;
-	}
+if($gallerie && is_array($gallerie) && count($gallerie) > 0){
+    foreach($gallerie as $photo){
+        if(is_array($photo) && isset($photo['url'])){
+            $nb_photos++;
+        }
+    }
 }
-
 // Set the variable to be used in another file
 set_query_var( 'gallerie', $gallerie );
 

@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Wp general options
- */
-define( 'WP_DEBUG', true );
-define( 'WP_DEBUG_LOG', true );
-define( 'WP_DEBUG_DISPLAY', true );
-
 // Activate the thumbnails
 add_theme_support( 'post-thumbnails' );
 

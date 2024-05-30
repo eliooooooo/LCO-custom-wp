@@ -28,10 +28,12 @@ $texte_pres = $pres_intervenant['texte'];
 
 $gallerie = get_field('gallerie_photo', $activite_id);
 $nb_photos = 0;
-foreach($gallerie as $photo){
-	if($photo['url']){
-		$nb_photos++;
-	}
+if($gallerie && is_array($gallerie) && count($gallerie) > 0){
+    foreach($gallerie as $photo){
+        if(is_array($photo) && isset($photo['url'])){
+            $nb_photos++;
+        }
+    }
 }
 
 set_query_var( 'gallerie', $gallerie );
@@ -54,7 +56,7 @@ get_header(); ?>
                     <?php the_content(); ?>
 					<?php if($nom_pres && $texte_pres){ ?>
 						<div class="intervenant bg-gray-200 rounded-md py-2 sm:py-6 px-4 sm:px-8 mt-8">
-							<h3 class="font-black">Cours encadrés par <?php echo $nom_pres; ?></h3>
+							<h3 class="font-black">Évènement encadré par <?php echo $nom_pres; ?></h3>
 							<?php echo $texte_pres; ?>
 						</div>
 					<?php } ?>
