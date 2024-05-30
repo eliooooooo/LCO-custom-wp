@@ -1,6 +1,19 @@
-.btn {
+/* Button from a <a> tag */
+a.btn,
+button.btn {
     @apply text-lg px-6 py-2 rounded-full text-white font-bold block w-fit mx-auto text-center;
     &.blue {
+        @apply bg-lco_blue-500;
+        &:hover {
+            @apply bg-lco_blue-700;
+        }
+    }
+}
+
+/* Button from the WYSIWYG editor */
+span.btn.blue {
+    a {
+        @apply text-lg px-6 py-2 rounded-full text-white font-bold block w-fit mx-auto text-center no-underline;
         @apply bg-lco_blue-500;
         &:hover {
             @apply bg-lco_blue-700;
