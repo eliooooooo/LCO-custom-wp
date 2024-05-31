@@ -1,7 +1,4 @@
 <?php
-/*
-Template Name: Page activité
-*/
 
 $activite_id = get_the_ID();
 $title = get_the_title();
