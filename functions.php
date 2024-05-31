@@ -164,18 +164,6 @@ function activites() {
 }
 add_action( 'init', 'activites', 0 );
 
-// Register Activites custom template
-add_filter('template_include', 'my_custom_template');
-function my_custom_template($template) {
-	global $post;
-
-	if ($post->post_type == 'activites') {
-		return get_template_directory() . '/page-activite.php';
-	}
-
-	return $template;
-}
-
 // Register Evenements Custom Post Type
 function evenements() {
 
@@ -233,17 +221,62 @@ function evenements() {
 }
 add_action( 'init', 'evenements', 0 );
 
-// Register Evenements custom template
-add_filter('template_include', 'add_event_template');
-function add_event_template($template) {
-	global $post;
+// Register Reunions Custom Post Type
+function reunions() {
 
-	if ($post->post_type == 'evenements') {
-		return get_template_directory() . '/page-evenements.php';
-	}
+	$labels = array(
+		'name'                  => _x( 'Réunions / AGs', 'Post Type General Name', 'custom' ),
+		'singular_name'         => _x( 'Réunion / AG', 'Post Type Singular Name', 'custom' ),
+		'menu_name'             => __( 'Réunions / AGs', 'custom' ),
+		'name_admin_bar'        => __( 'Réunions / AGs', 'custom' ),
+		'archives'              => __( 'Item Archives', 'custom' ),
+		'attributes'            => __( 'Item Attributes', 'custom' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'custom' ),
+		'all_items'             => __( 'All Items', 'custom' ),
+		'add_new_item'          => __( 'Add New Item', 'custom' ),
+		'add_new'               => __( 'Add New', 'custom' ),
+		'new_item'              => __( 'New Item', 'custom' ),
+		'edit_item'             => __( 'Edit Item', 'custom' ),
+		'update_item'           => __( 'Update Item', 'custom' ),
+		'view_item'             => __( 'View Item', 'custom' ),
+		'view_items'            => __( 'View Items', 'custom' ),
+		'search_items'          => __( 'Search Item', 'custom' ),
+		'not_found'             => __( 'Not found', 'custom' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'custom' ),
+		'featured_image'        => __( 'Featured Image', 'custom' ),
+		'set_featured_image'    => __( 'Set featured image', 'custom' ),
+		'remove_featured_image' => __( 'Remove featured image', 'custom' ),
+		'use_featured_image'    => __( 'Use as featured image', 'custom' ),
+		'insert_into_item'      => __( 'Insert into item', 'custom' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'custom' ),
+		'items_list'            => __( 'Items list', 'custom' ),
+		'items_list_navigation' => __( 'Items list navigation', 'custom' ),
+		'filter_items_list'     => __( 'Filter items list', 'custom' ),
+	);
+	$args = array(
+		'label'                 => __( 'Réunion / AG', 'custom' ),
+		'description'           => __( 'Les différents comptes rendus des réunions', 'custom' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor' ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'				=> 'dashicons-groups',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'reunions', $args );
 
-	return $template;
 }
+add_action( 'init', 'reunions', 0 );
 
 // Generate title style
 function generate_title($title_content, $title_tag) {
