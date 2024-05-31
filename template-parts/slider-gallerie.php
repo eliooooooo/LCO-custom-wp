@@ -1,11 +1,13 @@
 <div class="swiper-css swiper-activites">
     <div class="swiper-wrapper">
         <!-- Slides -->
-        <?php foreach($gallerie as $photo){ ?>
-            <?php if($photo['url']){ ?>
-                <div class="swiper-slide h-auto ">
-                    <img src="<?php echo $photo['url']; ?>" alt="<?php echo $photo['alt']; ?>" class="w-full rounded-md">
-                </div>
+        <?php if(is_array($gallerie)) { ?>
+            <?php foreach($gallerie as $photo){ ?>
+                <?php if(is_array($photo) && isset($photo['url'])){ ?>
+                    <div class="swiper-slide h-auto ">
+                        <img src="<?php echo $photo['url']; ?>" alt="<?php echo $photo['alt']; ?>" class="w-full rounded-md">
+                    </div>
+                <?php } ?>
             <?php } ?>
         <?php } ?>
     </div>
