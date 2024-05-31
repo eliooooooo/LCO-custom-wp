@@ -248,7 +248,7 @@ function add_event_template($template) {
 // Generate title style
 function generate_title($title_content, $title_tag) {
     $html = '<div class="flex flex-col gap-4 w-fit mb-10">';
-    $html .= '<' . $title_tag . ' class="text-3xl font-bold text-lco_gray-500">' . $title_content . '</' . $title_tag . '>';
+    $html .= '<' . $title_tag . ' class="text-3xl font-bold text-lco_gray-500 text-center">' . $title_content . '</' . $title_tag . '>';
     $html .= '<div class="flex flex-row items-center justify-center gap-2">';
     $html .= '<div class="h-3 w-14 bg-lco_blue-500 rounded-full"></div>';
     $html .= '<div class="h-3 w-3 bg-lco_gray-500 rounded-full"></div>';
