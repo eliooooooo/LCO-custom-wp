@@ -31,9 +31,9 @@ $image_5050 = get_field('bloc_5050')['image'];
 <div class="container mx-auto my-8">
 
     <?php if ($titre_5050 || $texte_5050){ ?>
-        <?php echo generate_title($titre_5050, 'h2') ?>
         <div class="flex flex-col lg:flex-row gap-4 lg:gap-8">
-            <div class="flex flex-col gap-4 lg:w-1/2">
+            <div class="flex flex-col justify-center items-center gap-4 lg:w-1/2">
+                <?php echo generate_title($titre_5050, 'h2') ?>
                 <?php echo $texte_5050; ?>
             </div>
             <div class="lg:w-1/2">
