@@ -48,7 +48,7 @@
         @apply text-base font-bold mb-4;
     }
 
-    a {
+    a:not(.btn) {
         @apply text-lco_blue-500 hover:text-lco_blue-700 underline;
     }
 }

@@ -11,6 +11,7 @@ $documents = get_field('documents', $page_id);
 $fiche_inscription = $documents['fiche_inscription'];
 $reglement = $documents['reglement_interieur'];
 $questionnaire = $documents['questionnaire_sante'];
+$planning = $documents['planning'];
 
 $encart = get_field('encart', $page_id);
 
@@ -32,6 +33,9 @@ get_header(); ?>
 			<div class="flex flex-col md:flex-row gap-8 lg:gap-10 xl:gap-14">
                 <div class="content w-full md:w-7/12 lg:w-8/12">
                     <?php the_content(); ?>
+                    <?php if($planning){ ?>
+                        <a href="<?php echo $planning['url']; ?>" class="btn blue">Découvrir le planning</a>
+                    <?php } ?>
                     <?php if($encart){ ?>
                         <div class="bg-gray-200 rounded-md py-2 sm:py-6 px-4 sm:px-8 mt-8">
                             <p><?php echo $encart; ?></p>

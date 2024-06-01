@@ -13,10 +13,7 @@ button.btn {
 /* Button from the WYSIWYG editor */
 span.btn.blue {
     a {
-        @apply text-lg px-6 py-2 rounded-full text-white font-bold block w-fit mx-auto text-center no-underline;
-        @apply bg-lco_blue-500;
-        &:hover {
-            @apply bg-lco_blue-700;
-        }
+        @apply text-lg px-6 py-2 rounded-full text-white hover:text-white font-bold block w-fit mx-auto text-center no-underline;
+        @apply bg-lco_blue-500 hover:bg-lco_blue-700;
     }
 }
