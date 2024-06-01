@@ -129,19 +129,9 @@ get_header(); ?>
                 </div>
             </div>
 
-			<?php if($nb_photos > 0) { ?>
+			<?php if($gallerie) { ?>
 				<div class="gallerie relative h-auto overflow-hidden mt-8">
-					<?php if(($nb_photos <= 2) && ($nb_photos > 0) ){ ?>	
-						<div class="flex flex-row justify-center gap-4">
-							<?php foreach($gallerie as $photo){ ?>
-								<?php if($photo['url']){ ?>
-									<img src="<?php echo $photo['url']; ?>" alt="<?php echo $photo['alt']; ?>" class="max-w-full rounded-md mx-auto">
-								<?php } ?>
-							<?php } ?>
-						</div>
-					<?php } else { ?>
-						<?php get_template_part( 'template-parts/slider', 'gallerie' ); ?>
-					<?php } ?>
+					<?php get_template_part( 'template-parts/slider', 'gallerie' ); ?>
 				</div>
 			<?php } ?>
 

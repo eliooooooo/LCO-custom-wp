@@ -24,14 +24,7 @@ $nom_pres = $pres_intervenant['prenom_nom'];
 $texte_pres = $pres_intervenant['texte'];
 
 $gallerie = get_field('gallerie_photo', $activite_id);
-$nb_photos = 0;
-if($gallerie && is_array($gallerie) && count($gallerie) > 0){
-    foreach($gallerie as $photo){
-        if(is_array($photo) && isset($photo['url'])){
-            $nb_photos++;
-        }
-    }
-}
+
 // Set the variable to be used in another file
 set_query_var( 'gallerie', $gallerie );
 
@@ -126,19 +119,9 @@ get_header(); ?>
                 </div>
             </div>
 
-			<?php if($nb_photos > 0) { ?>
+			<?php if($gallerie) { ?>
 				<div class="gallerie relative h-auto overflow-hidden mt-8">
-					<?php if(($nb_photos <= 2) && ($nb_photos > 0) ){ ?>	
-						<div class="flex flex-row justify-center gap-4">
-							<?php foreach($gallerie as $photo){ ?>
-								<?php if($photo['url']){ ?>
-									<img src="<?php echo $photo['url']; ?>" alt="<?php echo $photo['alt']; ?>" class="max-w-full rounded-md mx-auto">
-								<?php } ?>
-							<?php } ?>
-						</div>
-					<?php } else { ?>
-						<?php get_template_part( 'template-parts/slider', 'gallerie' ); ?>
-					<?php } ?>
+					<?php get_template_part( 'template-parts/slider', 'gallerie' ); ?>
 				</div>
 			<?php } ?>
 
