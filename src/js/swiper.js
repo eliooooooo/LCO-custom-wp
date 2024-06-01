@@ -28,10 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
             960: {
                 slidesPerView: 2,
                 spaceBetween: 30
-            },
-            1280: {
-                slidesPerView: 3,
-                spaceBetween: 40
             }
         }
     });
