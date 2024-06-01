@@ -60,6 +60,11 @@ get_header(); ?>
 							<?php echo $texte_pres; ?>
 						</div>
 					<?php } ?>
+					<?php if($gallerie) { ?>
+						<div class="gallerie relative h-auto overflow-hidden mt-8">
+							<?php get_template_part( 'template-parts/slider', 'gallerie' ); ?>
+						</div>
+					<?php } ?>
                 </div>
                 <div class="infos-pratiques w-full md:w-5/12 lg:w-4/12">
 					<div class="relative w-full border border-solid border-gray-400 rounded-md overflow-hidden">
@@ -128,12 +133,6 @@ get_header(); ?>
 					</div>
                 </div>
             </div>
-
-			<?php if($gallerie) { ?>
-				<div class="gallerie relative h-auto overflow-hidden mt-8">
-					<?php get_template_part( 'template-parts/slider', 'gallerie' ); ?>
-				</div>
-			<?php } ?>
 
 		<?php endwhile; ?>
 

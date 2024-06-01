@@ -1,13 +1,23 @@
-.swiper-css {
+.swiper-activites-css {
+    @apply relative;
+    .swiper-slide {
+        img {
+            @apply m-0;
+        }
+    }
     .swiper-button-prev,
     .swiper-button-next {
-        @apply w-auto text-white;
+        @apply absolute w-auto text-black -top-6;
         &::after {
             @apply content-none;
         }
     }
 
+    .swiper-button-prev {
+        left: calc(100% - 100px);
+    }
+
     .swiper-pagination-bullet-active {
-        @apply bg-white;
+        @apply bg-black;
     }
 }

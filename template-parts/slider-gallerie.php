@@ -1,4 +1,4 @@
-<div class="swiper-css swiper-activites">
+<div class="swiper-activites-css swiper-activites">
     <div class="swiper-wrapper">
         <!-- Slides -->
         <?php if(is_array($gallerie)) { ?>

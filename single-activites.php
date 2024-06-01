@@ -8,6 +8,7 @@ $infos_pratiques = get_field('infos_pratiques', $activite_id);
 $lieu = $infos_pratiques['lieu'];
 $horaires = $infos_pratiques['horaires'];
 $tarif = $infos_pratiques['tarif'];
+$materiel = $infos_pratiques['materiel'];
 
 $intervenant = $infos_pratiques['intervenant'];
 $nom_intervenant = $intervenant['prenom_nom'];
@@ -48,6 +49,12 @@ get_header(); ?>
 						<div class="intervenant bg-gray-200 rounded-md py-2 sm:py-6 px-4 sm:px-8 mt-8">
 							<h3 class="font-black">Cours encadrés par <?php echo $nom_pres; ?></h3>
 							<?php echo $texte_pres; ?>
+						</div>
+					<?php } ?>
+					<?php if($gallerie) { ?>
+						<div class="gallerie relative h-auto overflow-hidden mt-8">
+							<h3>Galerie photo</h3>
+							<?php get_template_part( 'template-parts/slider', 'gallerie' ); ?>
 						</div>
 					<?php } ?>
                 </div>
@@ -116,14 +123,16 @@ get_header(); ?>
 							</div>
 						<?php } ?>
 					</div>
+					<?php if($materiel){ ?>
+						<div class="mt-8 bg-gray-200 rounded-md py-4 px-4">
+							<h3 class="text-xl font-bold mb-2">Matériel</h3>
+							<div class="content">
+								<?php echo $materiel; ?>
+							</div>
+						</div>
+					<?php } ?>
                 </div>
             </div>
-
-			<?php if($gallerie) { ?>
-				<div class="gallerie relative h-auto overflow-hidden mt-8">
-					<?php get_template_part( 'template-parts/slider', 'gallerie' ); ?>
-				</div>
-			<?php } ?>
 
 		<?php endwhile; ?>
 
