@@ -277,6 +277,15 @@ function administratif() {
 }
 add_action( 'init', 'administratif', 0 );
 
+// redirect administratif single to archive
+add_action('template_redirect', 'redirect_cpt_single_pages');
+function redirect_cpt_single_pages() {
+	if (is_singular('administratif')) {
+        wp_redirect(get_post_type_archive_link('administratif'), 301);
+        exit;
+	}
+}
+
 // Generate title style
 function generate_title($title_content, $title_tag) {
     $html = '<div class="flex flex-col gap-4 w-fit mb-10">';
