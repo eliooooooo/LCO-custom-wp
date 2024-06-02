@@ -14,17 +14,13 @@ get_header();
 <div class="page">
 
   <?php
-  global $post;
-  ?>
-
-  <?php
   rewind_posts();
 
   // Loop through posts
   if (have_posts()) :
   ?>
-    <div class="container big">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-5  my-10 ">
+    <div class="container">
+      <div class="">
         <?php
         while (have_posts()) {
           the_post();

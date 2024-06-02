@@ -222,7 +222,7 @@ function evenements() {
 add_action( 'init', 'evenements', 0 );
 
 // Register Reunions Custom Post Type
-function reunions() {
+function administratif() {
 
 	$labels = array(
 		'name'                  => _x( 'Documents administratifs', 'Post Type General Name', 'custom' ),
@@ -273,9 +273,9 @@ function reunions() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
 	);
-	register_post_type( 'reunions', $args );
+	register_post_type( 'administratif', $args );
 }
-add_action( 'init', 'reunions', 0 );
+add_action( 'init', 'administratif', 0 );
 
 // Generate title style
 function generate_title($title_content, $title_tag) {
