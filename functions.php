@@ -225,10 +225,10 @@ add_action( 'init', 'evenements', 0 );
 function reunions() {
 
 	$labels = array(
-		'name'                  => _x( 'Réunions / AGs', 'Post Type General Name', 'custom' ),
-		'singular_name'         => _x( 'Réunion / AG', 'Post Type Singular Name', 'custom' ),
-		'menu_name'             => __( 'Réunions / AGs', 'custom' ),
-		'name_admin_bar'        => __( 'Réunions / AGs', 'custom' ),
+		'name'                  => _x( 'Documents administratifs', 'Post Type General Name', 'custom' ),
+		'singular_name'         => _x( 'Document administratif', 'Post Type Singular Name', 'custom' ),
+		'menu_name'             => __( 'Documents administratifs', 'custom' ),
+		'name_admin_bar'        => __( 'Documents administratifs', 'custom' ),
 		'archives'              => __( 'Item Archives', 'custom' ),
 		'attributes'            => __( 'Item Attributes', 'custom' ),
 		'parent_item_colon'     => __( 'Parent Item:', 'custom' ),
