@@ -254,7 +254,7 @@ function reunions() {
 		'filter_items_list'     => __( 'Filter items list', 'custom' ),
 	);
 	$args = array(
-		'label'                 => __( 'Réunion / AG', 'custom' ),
+		'label'                 => __( 'Document administratif', 'custom' ),
 		'description'           => __( 'Les différents comptes rendus des réunions', 'custom' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor' ),
@@ -274,7 +274,6 @@ function reunions() {
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'reunions', $args );
-
 }
 add_action( 'init', 'reunions', 0 );
 

@@ -11,8 +11,6 @@ $title2 = get_field('header')['titre_header_2'];
 
 $titre_5050 = get_field('bloc_5050')['titre'];
 $texte_5050 = get_field('bloc_5050')['texte'];
-$image_5050 = get_field('bloc_5050')['image'];
-
 ?>
 
 <?php get_header(); ?>
