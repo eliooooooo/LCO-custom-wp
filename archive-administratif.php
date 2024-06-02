@@ -18,7 +18,7 @@ get_header();
 	<?php echo generate_title('Documents administratifs', 'h1') ?>
 </div>
 
-	<div class="container my-8 mx-auto flex flex-col gap-10">
+	<div class="container my-8 mx-auto flex flex-col gap-14">
     <div class="permanent border border-gray-400 rounded-md overflow-hidden">
       <?php if ( have_posts() ) : ?>
         <?php while ( have_posts() ) :
@@ -34,7 +34,7 @@ get_header();
             $title = get_the_title();
             ?>
             <div class="relative flex flex-col <?php echo ($nb_permanent % 2 == 0) ? 'bg-gray-200' : 'bg-white'; ?>" x-data="{ isOpen: false }">
-              <div class="group flex flex-row justify-between items-center cursor-pointer py-2 sm:py-6 px-4 sm:px-8" @click="isOpen =! isOpen">
+              <div class="group flex flex-row gap-2 justify-between items-center cursor-pointer py-2 sm:py-6 px-4 sm:px-8" @click="isOpen =! isOpen">
                 <div class="flex flex-row items-center gap-4">
                   <h3><?php echo $title; ?></h3>
                   <?php if($date) { ?>
@@ -50,7 +50,7 @@ get_header();
                   </svg>
                 </div>
               </div>
-              <div class="flex flex-col gap-4 py-2 sm:py-6 px-4 sm:px-8" x-show="isOpen" x-transition>
+              <div class="flex flex-col gap-4 py-2 sm:py-6 px-4 sm:px-8" x-cloak x-show="isOpen" x-transition>
                 <div class="content">
                   <?php the_content(); ?>
                 </div>
@@ -58,16 +58,15 @@ get_header();
                   <a href="<?php echo $document['url']; ?>" class="btn blue">Télécharger le document</a>
                 <?php } ?>
                 <?php if($image){ ?>
-                  <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                  <img class="mx-auto lg:max-w-[50%] rounded-md" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
                 <?php } ?>
               </div>
-
             </div>
           <?php } ?>
         <?php endwhile; ?>
       <?php endif; ?>
     </div>
-    <div>
+    <div class="rounded-md overflow-hidden border border-gray-400">
       <?php if ( have_posts() ) : ?>
         <?php while ( have_posts() ) :
           the_post();
@@ -81,15 +80,15 @@ get_header();
             $image = get_field('image', $post_id);
             $title = get_the_title();
             ?>
-            <div class="relative flex flex-col" x-data="{ isOpen: false }">
-              <div class="flex flex-row items-center justify-between cursor-pointer" @click="isOpen =! isOpen">
-                <div class="flex flex-row gap-4">
+            <div class="relative flex flex-col <?php echo ($nb_temporary % 2 == 0) ? 'bg-gray-200' : 'bg-white'; ?>" x-data="{ isOpen: false }">
+              <div class="group flex flex-row gap-2 justify-between items-center cursor-pointer py-2 sm:py-6 px-4 sm:px-8" @click="isOpen =! isOpen">
+                <div class="flex flex-row items-center gap-4">
                   <h3><?php echo $title; ?></h3>
                   <?php if($date) { ?>
                     <span class="text-text-gray-400"><?php echo $date; ?></span>
                   <?php } ?>
                 </div>
-                <div>
+                <div class="<?php echo ($nb_temporary % 2 == 0) ? 'bg-white' : 'bg-gray-200'; ?> group-hover:bg-gray-400 p-2 rounded-full transition">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16" x-show="!isOpen">
                     <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
                   </svg>
@@ -98,7 +97,7 @@ get_header();
                   </svg>
                 </div>
               </div>
-              <div class="flex flex-col gap-4" x-show="isOpen" x-transition>
+              <div class="flex flex-col gap-4 py-2 sm:py-6 px-4 sm:px-8" x-cloak x-show="isOpen" x-transition>
                 <div class="content">
                   <?php the_content(); ?>
                 </div>
@@ -106,10 +105,9 @@ get_header();
                   <a href="<?php echo $document['url']; ?>" class="btn blue">Télécharger le document</a>
                 <?php } ?>
                 <?php if($image){ ?>
-                  <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                  <img class="mx-auto lg:max-w-[50%] rounded-md" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
                 <?php } ?>
               </div>
-
             </div>
           <?php } ?>
         <?php endwhile; ?>
