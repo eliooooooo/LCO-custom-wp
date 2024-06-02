@@ -1,14 +1,8 @@
 {
-	"name": "tailpress",
-	"version": "3.4.0",
+	"name": "lco_custom",
+	"version": "1.0",
 	"description": "Boilerplate WordPress theme with Tailwind CSS.",
-	"author": "Jeffrey van Rossum",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/jeffreyvr/tailpress"
-	},
-	"theme_uri": "https://github.com/jeffreyvr/tailpress",
-	"author_uri": "https://vanrossum.dev",
+	"author": "BURKLE Eliott",
 	"text_domain": "tailpress",
 	"license": "MIT",
 	"scripts": {
