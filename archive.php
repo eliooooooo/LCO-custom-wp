@@ -21,16 +21,15 @@ get_header();
   ?>
     <div class="container">
       <div class="">
-        <?php
-        while (have_posts()) {
-          the_post();
-          the_content();
-        //   get_template_part('template-parts/content', 'post');
-        }
-        ?>
+        <?php while (have_posts()) { 
+          the_post(); ?>
+          <div class="bg-gray-200">
+            
+            <?php echo get_the_title(); ?>
+          </div>
+        <?php } ?>
       </div>
     </div>
-    <?php the_posts_navigation(); ?>
   <?php endif; ?>
 
 </div>
