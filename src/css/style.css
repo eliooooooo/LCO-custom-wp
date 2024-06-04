@@ -6,6 +6,7 @@
 @import "./swiper.scss";
 @import "./buttons.scss";
 @import "./heading.scss";
+@import "./filters.scss";
 
 html {
     font-family: 'Ubuntu', sans-serif;

@@ -22,15 +22,15 @@ rewind_posts();
 if (have_posts()) :
 ?>
   <div class="container mx-auto">
-    <div class="flex flex-col lg:flex-row gap-10 items-center justify-between">
-      <div class="w-full lg:w-4/12 xl:w-3/12 h-52 bg-gray-200">
-
+    <div class="flex flex-col lg:flex-row gap-10 items-start justify-between">
+      <div class="w-full lg:w-4/12 xl:w-3/12 h-52 mt-10 ">
+        <?php echo do_shortcode('[fe_widget id="140"]'); ?>
       </div>
       <div class="mt-10 mb-10 w-full lg:w-8/12 xl:w-9/12 flex flex-row flex-wrap gap-4 sm:gap-6 md:gap-8 justify-around items-center px-2 sm:px-0">
         <?php while (have_posts()) { 
           the_post();
           $categories = get_the_category();
-          $infos_pratiques = get_field('infos_pratiques', $activite_id);
+          $infos_pratiques = get_field('infos_pratiques');
           $dates_cards = $infos_pratiques['date_cards'];
           $ligne1 = $dates_cards['ligne_1'];
           $ligne2 = $dates_cards['ligne_2'] ?>

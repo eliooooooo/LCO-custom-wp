@@ -1,0 +1,35 @@
+.wpc-filters-section .wpc-filter-layout-search-field {
+    @apply m-0;
+}
+
+.wpc-search-field {
+    @apply p-3 border border-gray-400 rounded-md;
+    &:focus {
+        @apply border-black;
+    }
+}
+
+.wpc-term-item-content-wrapper {
+    input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border: 2px solid #555;
+        border-radius: 4px;
+
+        &:hover {
+            @apply cursor-pointer;
+        }
+
+        &:checked {
+            @apply bg-lco_blue-500;
+        }
+    }
+}
+
+.wpc-edit-filter-set {
+    @apply hidden;
+}
