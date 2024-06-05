@@ -12,7 +12,7 @@ get_header();
 ?>
 
 <div class="bg-gray-200 pt-8 flex items-center justify-center">
-  <?php echo generate_title('Nos activités', 'h1') ?>
+  <?php echo generate_title('Nos évènements', 'h1') ?>
 </div>
 
 <?php

@@ -29,22 +29,9 @@ if (have_posts()) :
       <div class="mt-10 mb-10 w-full lg:w-8/12 xl:w-9/12 flex flex-row flex-wrap gap-4 sm:gap-6 md:gap-8 justify-around items-center px-2 sm:px-0">
         <?php while (have_posts()) { 
           the_post();
-          $categories = get_the_category();
-          $infos_pratiques = get_field('infos_pratiques');
-          $dates_cards = $infos_pratiques['date_cards'];
-          $ligne1 = $dates_cards['ligne_1'];
-          $ligne2 = $dates_cards['ligne_2'] ?>
+          $categories = wp_get_post_terms( get_the_ID(), 'rl_category' );
+          $infos_pratiques = get_field('infos_pratiques');?>
           <div class="relative w-full sm:w-[45%] h-[250px]">
-            <?php if($dates_cards){ ?>
-              <div class="absolute -top-4 -left-4 bg-white text-lco_blue-500 p-3 shadow-md z-10 flex flex-col items-center justify-center gap-2">
-                <?php if($ligne1){ ?>
-                  <span class="font-bold text-center"><?php echo $ligne1; ?></span>
-                <?php } ?>
-                <?php if($ligne2){ ?>
-                  <span class="font-bold text-center"><?php echo $ligne2; ?></span>
-                <?php } ?>
-              </div>
-            <?php } ?>
             <a href="<?php echo get_the_permalink(); ?>" class="block zoomable-container bg-gray-200 w-full h-full relative overflow-hidden transform scale-100" >
               <div class="w-full h-full bg-no-repeat bg-cover bg-center zoomable" <?php if(has_post_thumbnail()) {?> style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)" <?php } ?> ></div>
               <div class="absolute bottom-0 w-full">
