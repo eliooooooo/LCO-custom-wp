@@ -33,7 +33,7 @@ if (have_posts()) :
           $infos_pratiques = get_field('infos_pratiques');
           $dates_cards = $infos_pratiques['date_cards'];
           $ligne1 = $dates_cards['ligne_1'];
-          $ligne2 = $dates_cards['ligne_2'] ?>
+          $ligne2 = $dates_cards['ligne_2']; ?>
           <div class="relative w-full sm:w-[45%] h-[250px]">
             <?php if($dates_cards){ ?>
               <div class="absolute -top-4 -left-4 bg-white text-lco_blue-500 p-3 shadow-md z-10 flex flex-col items-center justify-center gap-2">
