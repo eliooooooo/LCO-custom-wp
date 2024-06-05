@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 
+	<div class="bg-gray-200 pt-8 flex items-center justify-center">
+		<?php echo generate_title(get_the_title(), 'h1') ?>
+	</div>
+
 	<div class="container my-8 mx-auto">
 
 	<?php if ( have_posts() ) : ?>
