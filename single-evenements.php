@@ -27,16 +27,10 @@ $nom_pres = $pres_intervenant['prenom_nom'];
 $texte_pres = $pres_intervenant['texte'];
 
 $gallerie = get_field('gallerie_photo', $activite_id);
-$nb_photos = 0;
-if($gallerie && is_array($gallerie) && count($gallerie) > 0){
-    foreach($gallerie as $photo){
-        if(is_array($photo) && isset($photo['url'])){
-            $nb_photos++;
-        }
-    }
+$galerie_id = url_to_postid($gallerie);
+if(has_post_thumbnail($galerie_id)){
+	$gallerie_image = get_the_post_thumbnail_url($galerie_id);
 }
-
-set_query_var( 'gallerie', $gallerie );
 
 get_header(); ?>
 <div class="bg-gray-200 pt-8 flex items-center justify-center">
@@ -61,9 +55,22 @@ get_header(); ?>
 						</div>
 					<?php } ?>
 					<?php if($gallerie) { ?>
-						<div class="gallerie relative h-auto overflow-hidden mt-8">
-							<?php get_template_part( 'template-parts/slider', 'gallerie' ); ?>
-						</div>
+						<a href="<?php echo $gallerie; ?>" class="<?php if($gallerie_image) { ?> gallerie group block relative h-auto overflow-hidden mt-8 <?php } else { ?> btn blue mt-8 <?php } ?>">
+							<?php if($gallerie_image) { ?>
+								<img src="<?php echo $gallerie_image; ?>" class="w-full h-auto">
+								<!-- <div class="bg-black/50 absolute transition-all opacity-0 hover:opacity-100 flex rounded-md items-center justify-center w-full h-full top-0 left-0 z-10">
+									<h3 class="text-white text-center py-4">Voir la galerie</h3>
+								</div> -->
+								<div class="flex flex-row gap-4 items-center justify-center bottom-2 right-2 absolute z-10 bg-black/50 rounded-md group-hover:bg-black/75 text-white font-bold text-lg p-4 transition-all">
+									<span>Accéder à la galerie</span>
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+									</svg>
+								</div>
+							<?php } else {?>
+								Accéder à la galerie
+							<?php } ?>
+						</a>
 					<?php } ?>
                 </div>
                 <div class="infos-pratiques w-full md:w-5/12 lg:w-4/12">
