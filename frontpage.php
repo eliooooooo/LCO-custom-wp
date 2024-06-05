@@ -8,8 +8,17 @@ Template Name: Page d'accueil
 $args = array(
     'post_type' => 'evenements',
     'posts_per_page' => 5,
-    'orderby' => 'date',
-    'order' => 'DESC'
+    'meta_key' => 'infos_pratiques_dates',
+    'orderby' => 'meta_value_num',
+    'order' => 'ASC',
+    'meta_query' => array(
+        array(
+            'key' => 'infos_pratiques_dates',
+            'value' => date('Ymd'),
+            'compare' => '>=',
+            'type' => 'DATE'
+        )
+    )
 );
 $query = new WP_Query($args);
 
@@ -91,10 +100,9 @@ $texte_5050 = get_field('bloc_5050')['texte'];
                     <?php 
                         // Réinitialisez les données de publication après une requête secondaire
                         wp_reset_postdata();
-                        } else {
-                            // Aucun événement trouvé
-                            echo '<p>Aucun événement trouvé.</p>';
-                        } ?>
+                        } else { ?>
+                            <img src="<?php echo get_template_directory_uri() . '/src/media/8499972949_65f802d337_b.jpg' ?>" class="w-full h-auto rounded-md">
+                        <?php } ?>
             </div>
         </div>
     <?php } ?>
