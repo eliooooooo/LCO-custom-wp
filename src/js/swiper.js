@@ -31,4 +31,19 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
+
+    const swiper2 = new Swiper('.swiper-home', {
+        // configure Swiper to use modules
+        modules: [Navigation, Pagination],
+        grabCursor: true,
+        slidesPerView: 1,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        }
+    });
 });
