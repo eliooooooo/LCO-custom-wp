@@ -144,7 +144,6 @@ function activites() {
 		'description'           => __( 'Les différentes activités proposées par LCO', 'custom' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
-		'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -258,7 +257,6 @@ function administratif() {
 		'description'           => __( 'Les différents comptes rendus des réunions', 'custom' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor' ),
-		'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -285,6 +283,24 @@ function redirect_cpt_single_pages() {
         exit;
 	}
 }
+
+// Remove default post type from admin menu
+function remove_posts_menu() {
+	remove_menu_page('edit.php');
+}
+add_action('admin_menu', 'remove_posts_menu');
+
+// Remove comments from admin menu
+function remove_comments_menu() {
+	remove_menu_page('edit-comments.php');
+}
+add_action('admin_menu', 'remove_comments_menu');
+
+// Remove specific admin menu page (Visionneuse photo)
+function remove_specific_admin_menu_page() {
+	remove_menu_page( 'responsive-lightbox-settings' );
+}
+add_action( 'admin_menu', 'remove_specific_admin_menu_page', 999 );
 
 // Generate title style
 function generate_title($title_content, $title_tag) {
