@@ -1,0 +1,18 @@
+footer {
+    .menu {
+        li {
+            @apply text-center;
+        }
+    }
+}
+
+header {
+    .menu {
+        ul {
+            /* @apply flex items-center; */
+            li {
+                @apply text-center max-w-32;
+            }
+        }
+    }
+}
