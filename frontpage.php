@@ -30,6 +30,8 @@ $title2 = get_field('header')['titre_header_2'];
 
 $titre_5050 = get_field('bloc_5050')['titre'];
 $texte_5050 = get_field('bloc_5050')['texte'];
+$image_alternative = get_field('bloc_5050')['image_alternative'];
+
 ?>
 
 <?php get_header(); ?>
@@ -100,8 +102,10 @@ $texte_5050 = get_field('bloc_5050')['texte'];
                     <?php 
                         // Réinitialisez les données de publication après une requête secondaire
                         wp_reset_postdata();
-                        } else { ?>
-                            <img src="<?php echo get_template_directory_uri() . '/src/media/8499972949_65f802d337_b.jpg' ?>" class="w-full h-auto rounded-md">
+                        } else { 
+                            if($image_alternative){ ?>
+                                <img src="<?php echo $image_alternative['url'] ?>" class="w-full h-auto rounded-md">
+                            <?php } ?>
                         <?php } ?>
             </div>
         </div>
