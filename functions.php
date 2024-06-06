@@ -304,7 +304,7 @@ add_action( 'admin_menu', 'remove_specific_admin_menu_page', 999 );
 
 // Generate title style
 function generate_title($title_content, $title_tag) {
-    $html = '<div class="flex flex-col gap-4 w-fit mb-10">';
+    $html = '<div class="flex flex-col gap-4 w-fit mb-10 mx-auto">';
     $html .= '<' . $title_tag . ' class="text-3xl font-bold text-lco_gray-500 text-center">' . $title_content . '</' . $title_tag . '>';
     $html .= '<div class="flex flex-row items-center justify-center gap-2">';
     $html .= '<div class="h-3 w-14 bg-lco_blue-500 rounded-full"></div>';
@@ -352,3 +352,14 @@ function my_mce_before_init_insert_formats($init_array) {
 	return $init_array;
 }
 add_filter('tiny_mce_before_init', 'my_mce_before_init_insert_formats');
+
+// Add custom menu locations
+function register_my_menus() {
+	register_nav_menus(
+		array(
+			'footer' => __( 'Footer Menu' ),
+			'socket' => __( 'Socket Menu' ),
+		)
+	);
+}
+add_action( 'init', 'register_my_menus' );

@@ -22,7 +22,7 @@
 	<header class="main-menu bg-white block drop-shadow-lg">
 
 		<div class="mx-auto container h-28">
-			<div class="lg:flex lg:justify-between lg:items-center h-full py-4 px-2">
+			<div class="menu lg:flex lg:justify-between lg:items-center h-full py-4 px-2">
 				<div class="flex justify-between items-center">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<img src="<?php echo get_template_directory_uri() . '/src/media/logo.png'; ?>"
