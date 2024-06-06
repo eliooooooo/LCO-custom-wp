@@ -363,3 +363,11 @@ function register_my_menus() {
 	);
 }
 add_action( 'init', 'register_my_menus' );
+
+// Remove editor from frontpage
+function remove_editor() {
+	if(isset($_GET['post']) && get_page_template_slug($_GET['post']) == 'frontpage.php') {
+		remove_post_type_support('page', 'editor');
+	}
+}
+add_action('admin_init', 'remove_editor');
