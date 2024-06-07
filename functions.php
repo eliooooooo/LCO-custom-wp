@@ -371,3 +371,23 @@ function remove_editor() {
 	}
 }
 add_action('admin_init', 'remove_editor');
+
+// Display events by date in archive
+function custom_pre_get_posts($query) {
+	if (!is_admin() && $query->is_main_query() && is_post_type_archive('evenements')) {
+		$query->set('meta_key', 'infos_pratiques_dates');
+		$query->set('orderby', 'meta_value');
+		$query->set('order', 'DESC');
+	}
+}
+add_action('pre_get_posts', 'custom_pre_get_posts');
+
+// Display gallery by date in archive
+function custom_pre_get_gallery($query) {
+	if (!is_admin() && $query->is_main_query() && is_post_type_archive('rl_gallery')) {
+		$query->set('meta_key', 'date_evenement');
+		$query->set('orderby', 'meta_value');
+		$query->set('order', 'DESC');
+	}
+}
+add_action('pre_get_posts', 'custom_pre_get_gallery');
