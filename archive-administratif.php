@@ -55,7 +55,7 @@ get_header();
                   <?php the_content(); ?>
                 </div>
                 <?php if($document){ ?>
-                  <a href="<?php echo $document['url']; ?>" class="btn blue">Télécharger le document</a>
+                  <a href="<?php echo $document['url']; ?>" target="_blank" class="btn blue">Télécharger le document</a>
                 <?php } ?>
                 <?php if($image){ ?>
                   <img class="mx-auto lg:max-w-[50%] rounded-md" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">

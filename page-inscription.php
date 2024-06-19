@@ -34,7 +34,7 @@ get_header(); ?>
                 <div class="content w-full md:w-7/12 lg:w-8/12">
                     <?php the_content(); ?>
                     <?php if($planning){ ?>
-                        <a href="<?php echo $planning['url']; ?>" class="btn blue">Découvrir le planning</a>
+                        <a href="<?php echo $planning['url']; ?>" target="_blank" class="btn blue">Découvrir le planning</a>
                     <?php } ?>
                     <?php if($encart){ ?>
                         <div class="bg-gray-200 rounded-md py-2 sm:py-6 px-4 sm:px-8 mt-8">
