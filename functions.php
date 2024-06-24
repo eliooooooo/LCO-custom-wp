@@ -163,6 +163,16 @@ function activites() {
 }
 add_action( 'init', 'activites', 0 );
 
+// No limit in archives post pages
+function custom_posts_per_page_for_activites($query) {
+	if (!is_admin() && $query->is_main_query()) {
+		if ($query->is_post_type_archive('activites') || $query->is_post_type_archive('evenements') || $query->is_post_type_archive('administratif')) {
+			$query->set('posts_per_page', -1);
+		}
+	}
+}
+add_action('pre_get_posts', 'custom_posts_per_page_for_activites');
+
 // Register Evenements Custom Post Type
 function evenements() {
 
