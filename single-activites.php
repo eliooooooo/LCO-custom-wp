@@ -87,7 +87,9 @@ get_header(); ?>
 							<hr class="mb-4 border-gray-400">
 						<?php } ?>
 						<?php if($age) { ?>
-							<span><?php echo $age; ?></span>
+							<div class="flex flex-row gap-4 items-center mb-4">
+								<span><?php echo $age; ?></span>
+							</div>
 						<?php } ?>
 						<?php if($horaires){ ?>
 							<div class="flex flex-row gap-4 items-center mb-4">
