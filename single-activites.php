@@ -6,6 +6,7 @@ $title = get_the_title();
 //Infos pratiques
 $infos_pratiques = get_field('infos_pratiques', $activite_id);
 $lieu = $infos_pratiques['lieu'];
+$age = $infos_pratiques['age'];
 $horaires = $infos_pratiques['horaires'];
 $tarif = $infos_pratiques['tarif'];
 $materiel = $infos_pratiques['materiel'];
@@ -82,8 +83,11 @@ get_header(); ?>
 							</div>
 						<?php } ?>
 						<?php if($horaires || $nom_intervenant || $tel_intervenant || $email_intervenant){ ?>
-							<h3 class="text-xl font-bold mb-2">Cours</h3>
+							<h3 class="text-xl font-bold mb-2">Cours - Modalités</h3>
 							<hr class="mb-4 border-gray-400">
+						<?php } ?>
+						<?php if($age) { ?>
+							<span><?php echo $age; ?></span>
 						<?php } ?>
 						<?php if($horaires){ ?>
 							<div class="flex flex-row gap-4 items-center mb-4">
@@ -119,7 +123,7 @@ get_header(); ?>
 						<?php } ?>
 						<?php if($nom_coordo || $tel_coordo || $email_coordo){ ?>
 							<div class="flex flex-col items-center justify-center text-center mt-8 text-gray-400">
-								<span><u>Coordinateur LCO :</u></span>
+								<span><u>Référent LCO :</u></span>
 								<?php if($nom_coordo){ ?>
 									<span><?php echo $nom_coordo; ?></span>
 								<?php } ?>
