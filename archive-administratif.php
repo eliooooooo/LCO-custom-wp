@@ -66,8 +66,8 @@ get_header();
         <?php endwhile; ?>
       <?php endif; ?>
     </div>
+    <?php if ( have_posts() ) : ?>
     <div class="rounded-md overflow-hidden border border-gray-400">
-      <?php if ( have_posts() ) : ?>
         <?php while ( have_posts() ) :
           the_post();
           $post_id = get_the_ID();
@@ -111,8 +111,8 @@ get_header();
             </div>
           <?php } ?>
         <?php endwhile; ?>
-      <?php endif; ?>
-    </div>
+      </div>
+    <?php endif; ?>
 
   </div>
 

@@ -124,7 +124,7 @@ get_header(); ?>
 							<?php } ?>
 							<?php if($nom_coordo || $tel_coordo || $email_coordo){ ?>
 								<div class="flex flex-col items-center justify-center text-center mt-8 text-gray-400">
-									<span><u>Coordinateur LCO :</u></span>
+									<span><u>Référent LCO :</u></span>
 									<?php if($nom_coordo){ ?>
 										<span><?php echo $nom_coordo; ?></span>
 									<?php } ?>
