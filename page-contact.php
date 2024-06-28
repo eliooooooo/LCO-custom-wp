@@ -36,9 +36,9 @@ get_header(); ?>
                 </div>
                 <div class="maps w-full md:w-7/12 lg:w-8/12 h-fit bg-gray-200">
                     <?php if($carte){ ?>
-                        <img src="<?php echo $carte['url']; ?>">
+                        <img class="w-full h-auto" src="<?php echo $carte['url']; ?>">
                     <?php } ?>
-                    <div class="py-2 sm:py-6 px-4 sm:px-8 content">
+                    <div class="py-1 sm:py-6 px-2 sm:px-8 content">
                         <?php if($adresse){ ?>
                             <?php echo $adresse; ?>
                         <?php } ?>
