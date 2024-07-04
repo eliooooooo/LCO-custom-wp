@@ -28,9 +28,9 @@ jobs:
           echo "npm version: $(npm -v)"
           
           # Cloner le dépôt
-          git clone https://github.com/eliooooooo/LCO-custom-wp.git
+          git clone https://${{ secrets.GH_PAT }}github.com/eliooooooo/LCO-custom-wp.git
           if [ ! -d "www" ]; then
-            mkdir www
+            mkdir www 
           fi
           
           # Copier les fichiers et changer de répertoire
