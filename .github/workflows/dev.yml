@@ -1,0 +1,54 @@
+name: Deploy to dev Server
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Deploy to Server
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        script_stop: true
+        script: |
+          set -e
+
+          # Vérifier les versions de Node.js et npm
+          echo "Node.js version: $(node -v)"
+          echo "npm version: $(npm -v)"
+          
+          # Cloner le dépôt
+          git clone https://github.com/eliooooooo/LCO-custom-wp.git
+          if [ ! -d "www" ]; then
+            mkdir www
+          fi
+          
+          # Copier les fichiers et changer de répertoire
+          cp -r LCO-custom-wp/* www/lco/wp-content/themes/lco-theme
+          rm -rf LCO-custom-wp
+          cd www/lco/wp-content/themes/lco-theme
+
+          # Afficher les fichiers et permissions dans le répertoire www avant l'installation
+          echo "Contenu du répertoire www/lco/wp-content/themes/lco-theme avant l'installation:"
+          ls -l
+          
+          # Installer les dépendances
+          npm ci
+          
+          # Afficher les fichiers et permissions dans le répertoire www après l'installation
+          echo "Contenu du répertoire www/lco/wp-content/themes/lco-theme après l'installation:"
+          ls -l
+
+          # Exécuter npm run prod et capturer les erreurs
+          echo "Exécution de npm run prod:"
+          npm run prod 2>error.log || { echo 'npm run prod failed'; cat error.log; exit 1; }
