@@ -41,10 +41,9 @@ $image_alternative = get_field('bloc_5050')['image_alternative'];
 
 <div class="container mx-auto my-8">
 
-    <?php if ($titre_5050 || $texte_5050){ ?>
+    <?php if ($texte_5050){ ?>
         <div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-8">
             <div class="flex flex-col justify-center items-center gap-4 w-full <?php if($query->have_posts() || $image_alternative) { echo 'lg:w-5/12'; } ?>">
-                <?php if($titre_5050) { echo generate_title($titre_5050, 'h2'); }; ?>
                 <?php echo $texte_5050; ?>
             </div>
             <div class="w-full lg:w-7/12">
