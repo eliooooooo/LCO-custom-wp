@@ -58,7 +58,7 @@ get_header(); ?>
 							$attachment_post = get_post($attachment_id);
 							if($attachment_post) { // Vérifie si la pièce jointe existe
 								$has_children = true;
-								break; // Sort de la boucle dès qu'une pièce jointe valide est trouvée
+								break;
 							}
 						}
 						if($has_children) { ?>
