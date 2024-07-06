@@ -41,7 +41,7 @@ jobs:
           # Afficher les fichiers et permissions dans le répertoire www avant l'installation
           echo "Contenu du répertoire www/lco/wp-content/themes/lco-theme avant l'installation:"
           ls -l
-          
+           
           # Installer les dépendances
           npm ci
           
