@@ -27,7 +27,10 @@
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<img src="<?php echo get_template_directory_uri() . '/src/media/logo_full.png'; ?>"
 							alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
-							class="block h-20 w-auto">
+							class="md:block lg:hidden xl:block h-20 w-auto hidden">
+						<img src="<?php echo get_template_directory_uri() . '/src/media/logo.png'; ?>"
+							alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
+							class="block md:hidden lg:block h-20 w-auto xl:hidden">
 					</a>
 
 					<div class="lg:hidden" @click="openMenu = !openMenu">

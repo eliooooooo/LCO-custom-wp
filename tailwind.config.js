@@ -33,7 +33,7 @@ module.exports = {
                     700: '#4D7F8D'
                 },
                 lco_yellow: {
-                    500: '#C8AD2C'
+                    500: '#FFF245'
                 },
                 lco_gray: {
                     500: '#5F5F62'
