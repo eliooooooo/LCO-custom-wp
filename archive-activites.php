@@ -13,7 +13,7 @@ $args = array(
   'post_type' => 'activites',
   'posts_per_page' => -1,
   'meta_key' => 'ordre_presentation',
-  'orderby' => 'meta_value',
+  'orderby' => 'meta_value_num',
   'order' => 'ASC',
 );
 
