@@ -52,21 +52,15 @@ get_header(); ?>
 							<?php echo $texte_pres; ?>
 						</div>
 					<?php } ?>
-					<?php if(!empty($gallerie) && is_array($gallerie)) { 
-						$has_children = false;
-						foreach($gallerie as $attachment_id) {
-							$attachment_post = get_post($attachment_id);
-							if($attachment_post) { // Vérifie si la pièce jointe existe
-								$has_children = true;
-								break;
-							}
-						}
-						if($has_children) { ?>
+					<?php 
+					if(!empty($gallerie) && is_array($gallerie)) { 
+						if ($gallerie['image_1'] != false || $gallerie['image_2'] != false || $gallerie['image_3'] != false || $gallerie['image_4'] != false || $gallerie['image_5'] != false) {
+						?>
 							<div class="gallerie relative h-auto overflow-hidden mt-8">
 								<h3>Galerie photo</h3>
 								<?php get_template_part( 'template-parts/slider', 'gallerie' ); ?>
 							</div>
-					<?php } } ?>
+					<?php }} ?>
                 </div>
                 <div class="infos-pratiques w-full md:w-5/12 lg:w-4/12">
 					<div class="w-full border border-solid border-gray-400 rounded-md py-8 px-4">
