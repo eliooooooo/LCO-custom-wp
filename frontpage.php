@@ -25,8 +25,6 @@ $query = new WP_Query($args);
 $frontpage_id = get_option( 'page_on_front' );
 
 $banner = get_field('header')['image_header'];
-
-$titre_5050 = get_field('bloc_5050')['titre'];
 $texte_5050 = get_field('bloc_5050')['texte'];
 $image_alternative = get_field('bloc_5050')['image_alternative'];
 

@@ -30,12 +30,43 @@ $gallerie = get_field('gallerie_photo', $activite_id);
 // Set the variable to be used in another file
 set_query_var( 'gallerie', $gallerie );
 
+// display link to next and previous post (order by acf flied ordre_presentation)
+$next_post = get_next_post();
+$prev_post = get_previous_post();
+if($next_post){
+	$next_post_id = $next_post->ID;
+	$next_post_title = get_the_title($next_post_id);
+	$next_post_link = get_permalink($next_post_id);
+}
+if ($prev_post) {
+	$prev_post_id = $prev_post->ID;
+	$prev_post_link = get_permalink($prev_post_id);
+	$prev_post_title = get_the_title($prev_post_id);
+}
+
 get_header(); ?>
 <div class="bg-gray-200 pt-8 flex items-center justify-center">
 	<?php echo generate_title($title, 'h1') ?>
 </div>
 
 	<div class="container my-8 mx-auto">
+		<?php if($next_post){ ?>
+			<a href="<?php echo $next_post_link; ?>" class="fixed left-0 top-1/2 group flex flex-row gap-2 items-center text-lco_blue-500 hover:text-lco_blue-700">
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+				</svg>
+				<span class="relative hidden group-hover:block"><?php echo $next_post_title ?></span>
+			</a>
+		<?php } ?>
+		<?php if($prev_post){ ?>
+			<a href="<?php echo $prev_post_link; ?>" class="fixed right-0 top-1/2 group flex flex-row gap-2 items-center text-lco_blue-500 hover:text-lco_blue-700">
+				<span class="hidden group-hover:block"><?php echo $prev_post_title ?></span>
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+				</svg>
+			</a>
+		<?php } ?>
+
 	<?php if ( have_posts() ) : ?>
 
 		<?php
