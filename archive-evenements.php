@@ -35,7 +35,7 @@ if (have_posts()) :
           $ligne1 = $dates_cards['ligne_1'];
           $ligne2 = $dates_cards['ligne_2']; ?>
           <div class="relative w-full sm:w-[45%] h-[250px]">
-            <?php if($dates_cards){ ?>
+            <?php if($ligne1 != "" || $ligne2 != ""){ ?>
               <div class="absolute -top-4 -left-4 bg-white text-lco_blue-500 p-3 shadow-md z-10 flex flex-col items-center justify-center gap-2">
                 <?php if($ligne1){ ?>
                   <span class="font-bold text-center"><?php echo $ligne1; ?></span>
