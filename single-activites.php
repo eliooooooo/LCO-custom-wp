@@ -48,17 +48,17 @@ get_header(); ?>
 </div>
 
 	<div class="container my-8 mx-auto">
-		<?php if($prev_post){ ?>
-			<a href="<?php echo $prev_post_link; ?>" class="fixed left-0 top-1/2 group flex flex-row gap-2 items-center text-lco_blue-500 hover:text-lco_blue-700">
+		<?php if($next_post){ ?>
+			<a href="<?php echo $next_post_link; ?>" class="fixed left-0 top-1/2 group flex flex-row gap-2 items-center text-lco_blue-500 hover:text-lco_blue-700">
 				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
 					<path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
 				</svg>
-				<span class="relative hidden group-hover:block"><?php echo $prev_post_title ?></span>
+				<span class="relative hidden group-hover:block"><?php echo $next_post_title ?></span>
 			</a>
 		<?php } ?>
-		<?php if($next_post){ ?>
-			<a href="<?php echo $next_post_link; ?>" class="fixed right-0 top-1/2 group flex flex-row gap-2 items-center text-lco_blue-500 hover:text-lco_blue-700">
-				<span class="hidden group-hover:block"><?php echo $next_post_title ?></span>
+		<?php if($prev_post){ ?>
+			<a href="<?php echo $prev_post_link; ?>" class="fixed right-0 top-1/2 group flex flex-row gap-2 items-center text-lco_blue-500 hover:text-lco_blue-700">
+				<span class="hidden group-hover:block"><?php echo $prev_post_title ?></span>
 				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
 					<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
 				</svg>
