@@ -33,13 +33,15 @@ set_query_var( 'gallerie', $gallerie );
 // display link to next and previous post (order by acf flied ordre_presentation)
 $next_post = get_next_post();
 $prev_post = get_previous_post();
-if($next_post || $prev_post){
+if($next_post){
 	$next_post_id = $next_post->ID;
-	$prev_post_id = $prev_post->ID;
 	$next_post_title = get_the_title($next_post_id);
-	$prev_post_title = get_the_title($prev_post_id);
 	$next_post_link = get_permalink($next_post_id);
+}
+if ($prev_post) {
+	$prev_post_id = $prev_post->ID;
 	$prev_post_link = get_permalink($prev_post_id);
+	$prev_post_title = get_the_title($prev_post_id);
 }
 
 get_header(); ?>
